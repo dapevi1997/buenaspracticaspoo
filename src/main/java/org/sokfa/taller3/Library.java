@@ -51,4 +51,16 @@ public class Library {
                 "Mirándote.jpg", "Rotundo éxito"));
     }
 
+    /**
+     * Método para mostrar la biblioteca completa en consola.
+     */
+    public void showLibray() {
+        for (int i = 0; i < songs.size(); i++) {
+            
+            System.out.println(songs.get(i));
+
+        }
+
+    }
+
 }
