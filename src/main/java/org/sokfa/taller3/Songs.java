@@ -13,7 +13,7 @@ import java.util.Objects;
  * @since 1.0.1
  *
  */
-public class Sogns {
+public class Songs {
 
     /**
      * Representa la fecha en que fue lanzada la canción.
@@ -54,7 +54,7 @@ public class Sogns {
      * @param cover Nombre de la imagen de la carátula del album.
      * @param description Descripción de la canción.
      */
-    public Sogns(String id, String title, Calendar date, double duration,
+    public Songs(String id, String title, Calendar date, double duration,
             String cover, String description) {
         this.date = Objects.requireNonNull(date);
         this.id = Objects.requireNonNull(id);
@@ -98,6 +98,15 @@ public class Sogns {
      */
     public String getGender() {
         return gender;
+    }
+
+    /**
+     * Método para modificar el atributo genero.
+     *
+     * @param gender
+     */
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
     /**
