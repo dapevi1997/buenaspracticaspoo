@@ -117,7 +117,7 @@ public class Songs {
      */
     @Override
     public String toString() {
-        return "ID: " + id + " "
+        return "Id: " + id + " "
                 + "Título: " + title + " "
                 + "Género: " + gender + " "
                 + "Fecha: " + (date.get(Calendar.YEAR)) + "/"
