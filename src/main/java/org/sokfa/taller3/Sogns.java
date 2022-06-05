@@ -1,6 +1,7 @@
 package org.sokfa.taller3;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 /**
  * Clase padre para la creación de canciones.
@@ -9,7 +10,7 @@ import java.util.Calendar;
  *
  * @author DANIEL PEREZ VITOLA - dapevi97@gmail.com
  *
- * @since 1.0.0
+ * @since 1.0.1
  *
  */
 public class Sogns {
@@ -55,12 +56,12 @@ public class Sogns {
      */
     public Sogns(String id, String title, Calendar date, double duration,
             String cover, String description) {
-        this.date = date;
-        this.id = id;
-        this.title = title;
-        this.duration = duration;
-        this.cover = cover;
-        this.description = description;
+        this.date = Objects.requireNonNull(date);
+        this.id = Objects.requireNonNull(id);
+        this.title = Objects.requireNonNull(title);
+        this.duration = Objects.requireNonNull(duration);
+        this.cover = Objects.requireNonNull(cover);
+        this.description = Objects.requireNonNull(description);
     }
 
     /**
