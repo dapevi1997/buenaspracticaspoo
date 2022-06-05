@@ -18,19 +18,19 @@ public class Songs {
     /**
      * Representa la fecha en que fue lanzada la canción.
      */
-    private Calendar date;
+    private final Calendar date;
     /**
      * Representa el id único de cada canción.
      */
-    private String id;
+    private final String id;
     /**
      * Representa el título de la canción.
      */
-    private String title;
+    private final String title;
     /**
      * Representa la duración de la canción.
      */
-    private double duration;
+    private final double duration;
     /**
      * Representa el género de la canción.
      */
@@ -38,11 +38,11 @@ public class Songs {
     /**
      * Representa el nombre de la imagen de la portada del disco.
      */
-    private String cover;
+    private final String cover;
     /**
      * Representa una corta descripción de la canción.
      */
-    private String description;
+    private final String description;
 
     /**
      * Constructor de la clase padre.

@@ -26,84 +26,78 @@ public class Taller3 {
          * canciones.
          */
         Library library = new Library();
+
+        /**
+         * Variable para almacenar los arreglos retornados por algúnos métodos.
+         */
+        List<Songs> songs = new ArrayList<>();
         /**
          * Variable para almacenar la elección del usuario
          */
         int selected;
         /**
-         * Variable para almacenar los arreglos retornados por algúnos métodos.
+         * Bandera para salir de la apliación solo hasta que el usuario lo
+         * decida.
          */
-        List<Songs> songs;
+        boolean flag = true;
+        /**
+         * Ciclo while para hacer el bucle infinito hasta que el jugador decida.
+         */
+        do {
 
-        library.showLibray();
-        selected = library.chooseOption();
-        if (selected == 1) {
-
+            library.showLibray();
+            selected = library.chooseOption();
             /**
-             * Variable para almacenar la entrada del usuario.
+             * Estructura condicional para realizar comportamientos con la
+             * biblioteca de canciones.
              */
-            String ids;
-            System.out.println("-----------------------------------------------");
-            System.out.println("Escoja las canciones escbriendo el id separado "
-                    + "por comas. Ej (1,2)");
-            ids = in.next();
-            songs = library.playList(ids);
+            switch (selected) {
+                case 1:
+                    library.playList();
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
 
-            System.out.println("Esta es su playlist:");
-            System.out.println("");
-            library.showLibray(songs);
-            System.out.println("-----------------------------------------------");
-        } else if (selected == 2) {
-            int selection;
-            String gender = "";
-            songs = library.getSongs();
-            System.out.println("-----------------------------------------------");
-            System.out.println("Escoja el género por el que desea filtrar");
-            System.out.println(" 1. Vallenato");
-            System.out.println(" 2. Salsa");
-            System.out.println(" 3. Merengue");
-            selection = in.nextInt();
-            if (selection == 1) {
-                gender = "Vallenato";
-            } else if (selection == 2) {
-                gender = "Salsa";
+                case 2: {
+                    library.filterByGender();
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
+                }
+                case 3: {
+                    library.filterByYear();
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
+                }
+                case 4:
 
-            } else if (selection == 3) {
-                gender = "Merengue";
+                    library.organizeByDuration("asc");
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+
+                    break;
+                case 5:
+                    library.organizeByDuration("des");
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
+                case 6:
+                    library.organizeByDate("asc");
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
+                case 7:
+                    library.organizeByDate("des");
+                    System.out.println("Pulse la tecla enter para continuar...");
+                    in.nextLine();
+                    break;
+                case 8:
+                    System.exit(0);
+                default:
+                    break;
             }
-            songs = library.filter(songs, gender);
-            library.showLibray(songs);
-
-        } else if (selected == 3) {
-            int selection;
-            songs = library.getSongs();
-            System.out.println("-----------------------------------------------");
-            System.out.println("Año por el que desea filtrar: ");
-            selection = in.nextInt();
-            songs = library.filter(songs, selection);
-            library.showLibray(songs);
-
-        } else if (selected == 4) {
-            songs = library.getSongs();
-            songs = library.organizeByDuration(songs);
-            library.showLibray(songs);
-
-        } else if (selected == 5) {
-            songs = library.getSongs();
-            songs = library.organizeByDuration(songs);
-            library.showLibrayDes(songs);
-
-        } else if (selected == 6) {
-            songs = library.getSongs();
-            songs = library.organizeByDate(songs);
-            library.showLibray(songs);
-
-        } else if (selected == 7) {
-            songs = library.getSongs();
-            songs = library.organizeByDate(songs);
-            library.showLibrayDes(songs);
-
-        }
+        } while (flag);
 
     }
 
